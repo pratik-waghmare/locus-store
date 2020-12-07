@@ -1,0 +1,48 @@
+.user__item {
+  margin: 1rem;
+  width: calc(45% - 2rem);
+  min-width: 17.5rem;
+}
+
+.user__item a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  padding: 1rem;
+  background: #85bdff;
+}
+
+.user__item a:hover,
+.user__item a:active {
+  background: #18abf5;
+}
+
+.user__item__content {
+  padding: 0;
+}
+
+.user__item__image {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+
+.user__item__info h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: normal;
+  color: #ffd900;
+}
+
+.user__item:hover h2,
+.user__item:active h2,
+.user__item:hover h3,
+.user__item:active h3 {
+  color: #292929;
+}
+
+.user__item__info h3 {
+  margin: 0;
+}
