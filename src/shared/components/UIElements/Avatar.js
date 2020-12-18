@@ -6,7 +6,11 @@ const Avatar = (props) => {
   return (
     <div className={`avatar ${props.className}`} style={props.style}>
       <img
-        src={props.image}
+        src={
+          process.env.REACT_APP_CLOUDINARY_URL +
+          "/w_128,h_128,c_limit/" +
+          props.image
+        }
         alt={props.alt}
         style={{ width: props.width, height: props.width }}
       />
