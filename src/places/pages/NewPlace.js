@@ -65,8 +65,6 @@ const NewPlace = (props) => {
 
       history.push("/");
     } catch (err) {}
-
-    // console.log(formState.inputs); // send to DB
   };
 
   return (
@@ -74,6 +72,10 @@ const NewPlace = (props) => {
       {<ErrorModal error={error} onClear={clearError}></ErrorModal>}
       <form className="place-form" onSubmit={placeSubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay />}
+        <h1 className="subHeading" style={{ fontSize: "1.8rem" }}>
+          Add Place
+        </h1>
+        <hr />
         <Input
           id="title"
           element="input"
@@ -82,6 +84,7 @@ const NewPlace = (props) => {
           errorText="Title should not be empty"
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}
+          placeholder="Title"
         />
         <Input
           id="description"
@@ -91,11 +94,14 @@ const NewPlace = (props) => {
           errorText="Description should not be empty"
           validators={[VALIDATOR_MINLENGTH(6)]}
           onInput={inputHandler}
+          placeholder="Description"
         />
         <ImageUpload
           id="image"
           onInput={inputHandler}
-          // errorText="Please provide image"
+          width="16rem"
+          height="10rem"
+          placeholder="ADD IMAGE"
         />
         <Input
           id="address"
@@ -105,6 +111,7 @@ const NewPlace = (props) => {
           errorText="Address should not be empty"
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}
+          placeholder="Address"
         />
         <Button type="submit" disabled={!formState.isValid}>
           ADD PLACE

@@ -30,7 +30,7 @@ const PlaceItem = (props) => {
     setShowConfirmModal(false);
   };
 
-  const confirmDeleteHandler = async () => {
+  const confirmDeleteHandler = async (event) => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
@@ -49,7 +49,6 @@ const PlaceItem = (props) => {
   return (
     <React.Fragment>
       {<ErrorModal error={error} onClear={clearError}></ErrorModal>}
-
       <Modal
         show={showMap}
         onCancel={closeMapHandler}
@@ -84,8 +83,8 @@ const PlaceItem = (props) => {
         </p>
       </Modal>
       <li className="place-item">
-        {isLoading && <LoadingSpinner asOverlay />}
         <Card className="place-item__content">
+          {isLoading && <LoadingSpinner asOverlay />}
           <div className="place-item__image">
             <img
               src={

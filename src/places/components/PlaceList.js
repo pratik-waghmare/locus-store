@@ -9,8 +9,10 @@ const PlaceList = (props) => {
   if (props.items.length === 0) {
     return (
       <div className="place-list center">
-        <Card>
-          <h2>No places found. Maybe create one?</h2>
+        <Card className="center p-5">
+          <h2 className="card__heading mb-4">
+            No places found. Maybe create one?
+          </h2>
           <Button to={`/places/new`}>Add Place</Button>
         </Card>
       </div>

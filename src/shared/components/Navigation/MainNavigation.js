@@ -33,6 +33,7 @@ const MainNavigation = (props) => {
         <button
           className="main-navigation__menu-btn"
           onClick={openDrawerHandler}
+          style={{ outline: "none" }}
         >
           <i className="fa fa-bars"></i>
         </button>

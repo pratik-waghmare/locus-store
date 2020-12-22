@@ -50,30 +50,31 @@ const Input = (props) => {
   const element =
     props.element === "input" ? (
       <input
+        className="form-control"
         type={props.type}
         id={props.id}
         placeholder={props.placeholder}
         onChange={changeHandler}
         onBlur={touchHandler}
         value={inputState.value}
+        autoComplete="on"
       />
     ) : (
-      <textarea
-        id={props.id}
-        rows={props.row || 3}
-        onChange={changeHandler}
-        onBlur={touchHandler}
-        value={inputState.value}
-      ></textarea>
+      <div>
+        <label htmlFor={props.placeholder}>{props.placeholder}</label>
+        <textarea
+          className="form-control mt-2"
+          id={props.id}
+          rows={props.row || 3}
+          onChange={changeHandler}
+          onBlur={touchHandler}
+          value={inputState.value}
+        ></textarea>
+      </div>
     );
 
   return (
-    <div
-      className={`form-control ${
-        !inputState.isValid && inputState.isTouched && "form-control--invalid"
-      }`}
-    >
-      <label htmlFor={props.id}>{props.label}</label>
+    <div className="form-group mb-3">
       {element}
       {!inputState.isValid && inputState.isTouched && <p>{props.errorText}</p>}
     </div>

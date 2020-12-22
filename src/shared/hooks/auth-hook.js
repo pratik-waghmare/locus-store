@@ -5,30 +5,39 @@ let logoutTimer;
 export const useAuth = () => {
   const [token, setToken] = useState(false);
   const [userId, setUserId] = useState(false);
+  const [userImage, setUserImage] = useState(false);
   const [tokenExpirationDate, setTokenExpirationDate] = useState();
 
-  const login = useCallback((userId, token, expirationDate) => {
-    setToken(token);
-    setUserId(userId);
-    const tokenExpirationDate =
-      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+  const login = useCallback(
+    (userId, image, token, expirationDate) => {
+      setToken(token);
+      setUserId(userId);
+      setUserImage(image);
 
-    setTokenExpirationDate(tokenExpirationDate);
+      const tokenExpirationDate =
+        expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
 
-    localStorage.setItem(
-      "userData",
-      JSON.stringify({
-        expiration: tokenExpirationDate.toISOString(),
-        userId: userId,
-        token: token,
-      })
-    );
-  }, []);
+      setTokenExpirationDate(tokenExpirationDate);
 
-  const logout = useCallback((userId, token) => {
+      localStorage.setItem(
+        "userData",
+        JSON.stringify({
+          expiration: tokenExpirationDate.toISOString(),
+          userId: userId,
+          userImage: userImage,
+          token: token,
+        })
+      );
+    },
+    [userImage]
+  );
+
+  const logout = useCallback((userId, image, token) => {
     setToken(null);
     setUserId(null);
+    setUserImage(null);
     setTokenExpirationDate(null);
+
     localStorage.removeItem("userData");
   }, []);
 
@@ -53,11 +62,12 @@ export const useAuth = () => {
     ) {
       login(
         storedData.userId,
+        storedData.userImage,
         storedData.token,
         new Date(storedData.expiration)
       );
     }
   }, [login]);
 
-  return { token, userId, login, logout };
+  return { token, userId, userImage, login, logout };
 };

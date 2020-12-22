@@ -5,8 +5,7 @@
   border-radius: 4px;
   background: #415ad8;
   color: white;
-  cursor: pointer;
-  margin-right: 1rem;
+  /* cursor: pointer; */
   text-decoration: none;
   display: inline-block;
 }
@@ -17,8 +16,10 @@
 
 .button:hover,
 .button:active {
-  background: #415ad8;
-  border-color: #415ad8;
+  background: #364dc4;
+  border-color: #2343e7;
+  color: #fff;
+  text-decoration: none;
 }
 
 .button--inverse {

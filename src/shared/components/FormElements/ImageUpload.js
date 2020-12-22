@@ -7,6 +7,10 @@ const ImageUpload = (props) => {
   const [file, setFile] = useState();
   const [isValid, setIsValid] = useState(false);
   const [previewUrl, setPreviewUrl] = useState();
+  let initialImage =
+    props.initialImage === ""
+      ? process.env.REACT_APP_TEMP_IMAGE
+      : props.initialImage;
 
   const imageRef = useRef();
 
@@ -45,7 +49,7 @@ const ImageUpload = (props) => {
   };
 
   return (
-    <div className="form-control">
+    <div>
       <input
         id="props.id"
         type="file"
@@ -53,14 +57,27 @@ const ImageUpload = (props) => {
         ref={imageRef}
         onChange={pickedHandler}
       />
-      <div className={`image-upload ${props.center && "center"}`}>
-        <div className="image-upload__preview">
+      <div
+        className="d-flex-column center mb-3"
+        style={{ width: `${props.width}` }}
+      >
+        <div
+          className="image-upload__preview"
+          style={{ width: `${props.width}`, height: `${props.height}` }}
+        >
           {previewUrl && <img src={previewUrl} alt="Preview" />}
-          {!previewUrl && <p>Please pick an image</p>}
+          {!previewUrl && initialImage && (
+            <img
+              src={`${process.env.REACT_APP_CLOUDINARY_URL}/w_160,h_160,c_limit/${initialImage}`}
+              alt="Preview"
+            />
+          )}
         </div>
-        <Button type="button" onClick={pickImageHandler}>
-          Pick Image
-        </Button>
+        <div>
+          <Button type="button" onClick={pickImageHandler} width={props.width}>
+            {props.placeholder}
+          </Button>
+        </div>
       </div>
       {!isValid && <p>{props.errorText}</p>}
     </div>

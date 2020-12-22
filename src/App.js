@@ -9,6 +9,7 @@ import "./App.scss";
 import NewPlace from "./places/pages/NewPlace";
 import Users from "./users/pages/Users";
 import Auth from "./users/pages/Auth";
+import Dashboard from "./users/pages/Dashboard";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import UserPlaces from "./places/pages/UserPlaces";
 import UpdatePlace from "./places/pages/UpdatePlace";
@@ -16,7 +17,7 @@ import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 
 function App() {
-  const { token, userId, login, logout } = useAuth();
+  const { token, userId, userImage, login, logout } = useAuth();
   let routes;
 
   if (!token) {
@@ -49,6 +50,9 @@ function App() {
         <Route path="/places/:placeId" exact>
           <UpdatePlace />
         </Route>
+        <Route path="/users/:uid" exact>
+          <Dashboard />
+        </Route>
         <Redirect to="/"></Redirect>
       </Switch>
     );
@@ -61,6 +65,7 @@ function App() {
           isLoggedIn: !!token,
           token: token,
           userId: userId,
+          userImage: userImage,
           login: login,
           logout: logout,
         }}

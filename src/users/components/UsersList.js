@@ -6,8 +6,12 @@ import UserItem from "./UserItem";
 const UsersList = (props) => {
   if (props.items.length === 0) {
     return (
-      <div style={{ textAlign: "center" }}>
-        <h1>Items no found !</h1>
+      <div className="d-flex justify-content-center">
+        <div className="card center mt-3 p-5" style={{ width: "60vw" }}>
+          <h2 style={{ fontSize: "1.5em", fontWeight: 700 }}>
+            No items found !
+          </h2>
+        </div>
       </div>
     );
   }

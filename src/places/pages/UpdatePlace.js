@@ -4,7 +4,10 @@ import { useHistory, useParams } from "react-router-dom";
 import { useForm } from "../../shared/hooks/form-hook";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
-import { VALIDATOR_REQUIRE } from "../../shared/components/util/validators";
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH,
+} from "../../shared/components/util/validators";
 
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
@@ -97,13 +100,17 @@ const UpdatePlace = (props) => {
       {<ErrorModal error={error} onClear={clearError}></ErrorModal>}
       {!isLoading && loadedPlace && (
         <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
+          <h1 className="subHeading" style={{ fontSize: "1.8rem" }}>
+            Update Place
+          </h1>
+          <hr />
           <Input
             id="title"
             element="input"
             type="text"
             label="Title"
-            errorText="Title should not be empty"
-            validators={[VALIDATOR_REQUIRE()]}
+            errorText="Title must have atleast 3 letters"
+            validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(3)]}
             valid={true}
             value={loadedPlace.title}
             onInput={inputHandler}
@@ -113,8 +120,8 @@ const UpdatePlace = (props) => {
             element="textarea"
             type="text"
             label="Description"
-            errorText="Description should not be empty"
-            validators={[VALIDATOR_REQUIRE()]}
+            errorText="Title must have atleast 6 letters"
+            validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(6)]}
             valid={true}
             value={loadedPlace.description}
             onInput={inputHandler}

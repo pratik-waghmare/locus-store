@@ -1,58 +1,24 @@
-.modal {
-  z-index: 100;
+.modal__backdrop {
   position: fixed;
-  top: 22vh;
-  left: 10%;
-  width: 80%;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border-radius: 8px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(52, 52, 52);
+  z-index: 10;
 }
 
-.modal__header {
-  width: 100%;
-  padding: 1rem 0.5rem;
-  background: #2a006e;
-  color: white;
+.modal-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightblue;
+  width: 100vw;
+  z-index: 20;
 }
 
-.modal__header h2 {
-  margin: 0.5rem;
-}
-
-.modal__content {
-  padding: 1rem 0.5rem;
-}
-
-.modal__footer {
-  padding: 1rem 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .modal {
-    left: calc(50% - 20rem);
-    width: 40rem;
-  }
-}
-
-.modal-enter {
-  transform: translateY(-10rem);
-  opacity: 0;
-}
-
-.modal-enter-active {
-  transform: translateY(0);
-  opacity: 1;
-  transition: all 200ms;
-}
-
-.modal-exit {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.modal-exit-active {
-  transform: translateY(-10rem);
-  opacity: 0;
-  transition: all 200ms;
+.modal-content {
+  /* z-index: 20; */
+  /* max-width: 600px; */
 }
