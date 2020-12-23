@@ -1,4 +1,4 @@
-![locus-store-logo](https://res.cloudinary.com/pratikwaghmare-space/image/upload/w_128,h_128/v1608707667/locus-store-logo_tmt8ff.png)
+![locus-store-logo](https://res.cloudinary.com/pratikwaghmare-space/image/upload/w_70,h_70/v1608707667/locus-store-logo_tmt8ff.png)
 # Locus Store
 It allows users to share places and locations with other users.
 Developed a single page application's frontend using __React__ and backend using __Express__, and __Mongo Db__.
