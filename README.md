@@ -2,7 +2,7 @@
 It allows users to share places and locations with other users.
 Developed a single page application's frontend using __React__ and backend using __Express__, and __Mongo Db__.
 
-## This is the frontend.
+### This is the frontend.
 ## Tech Stack
 <p align="left">
 <a href="https://
@@ -20,7 +20,8 @@ Developed a single page application's frontend using __React__ and backend using
 <a href="https://www.figma.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a>
 </p>
 
-## Deployed on **Netlify**
+## Deployed on
+Netlify
 
 ## Available Scripts
 
