@@ -21,7 +21,7 @@ Developed a single page application's frontend using __React__ and backend using
 </p>
 
 ## Deployed on
-#### Netlify
+#### **Netlify**
 
 ## Available Scripts
 
