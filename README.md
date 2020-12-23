@@ -1,8 +1,8 @@
 # Locus Store
 It allows users to share places and locations with other users.
 Developed a single page application's frontend using __React__ and backend using __Express__, and __Mongo Db__.
+##### This is the frontend.
 
-### This is the frontend.
 ## Tech Stack
 <p align="left">
 <a href="https://
@@ -21,7 +21,7 @@ Developed a single page application's frontend using __React__ and backend using
 </p>
 
 ## Deployed on
-Netlify
+#### Netlify
 
 ## Available Scripts
 
