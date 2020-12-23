@@ -1,4 +1,4 @@
-# Locus Store
+# Locus Store ( Frontend )
 ![locus-store-logo](https://res.cloudinary.com/pratikwaghmare-space/image/upload/w_64,h_64/v1608707667/locus-store-logo_tmt8ff.png)
 <br/>
 It allows users to share places and locations with other users.
